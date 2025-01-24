@@ -18,7 +18,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(RESULT_FOLDER, exist_ok=True)
 
 
-# Генерация капчи
+# Генерация капчи и не только
 def generate_captcha():
     captcha_text = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
     session['captcha'] = captcha_text
