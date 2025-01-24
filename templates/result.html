@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты обработки</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .images-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .image-group {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .image-group p {
+            margin: 0 0 10px;
+            font-weight: 500;
+            color: #34495e;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .back-link {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                margin: 10px;
+            }
+
+            .images-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Результаты обработки</h1>
+
+    <div class="images-container">
+        <div class="image-group">
+            <p>Оригинальное изображение:</p>
+            <img src="/uploads/{{ original_image }}" alt="Оригинальное изображение">
+        </div>
+
+        <div class="image-group">
+            <p>Обработанное изображение:</p>
+            <img src="/results/{{ processed_image }}" alt="Обработанное изображение">
+        </div>
+
+        <div class="image-group">
+            <p>Распределение цветов оригинального изображения:</p>
+            <img src="/results/{{ original_plot }}" alt="Гистограмма оригинального изображения">
+        </div>
+
+        <div class="image-group">
+            <p>Распределение цветов обработанного изображения:</p>
+            <img src="/results/{{ processed_plot }}" alt="Гистограмма обработанного изображения">
+        </div>
+    </div>
+
+    <a href="/" class="back-link">Вернуться на главную</a>
+</body>
+</html>
