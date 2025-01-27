@@ -1,0 +1,9 @@
+language: python
+python:
+  - "3.8"  # Укажите версию Python, которую вы используете
+
+install:
+  - pip install -r requirements.txt  # Установите зависимости
+
+script:
+  - python -m pytest  # Запустите тесты (если они есть)

@@ -74,7 +74,7 @@ def plot_color_distribution(image, filename, title_suffix=""):
     colors = ["Red", "Green", "Blue"]
     channel_stats = []
 
-    plt.figure(figsize=(12, 6), dpi=100)
+    plt.figure(figsize=(12, 6), dpi=150)  # Увеличиваем DPI для лучшего качества
     for i, color in enumerate(colors):
         channel_data = array[..., i].flatten()
         mean_val = np.mean(channel_data)
@@ -82,17 +82,17 @@ def plot_color_distribution(image, filename, title_suffix=""):
         channel_stats.append((mean_val, std_val))
 
         plt.hist(channel_data, bins=256, range=(0, 255),
-                 alpha=0.5, color=color.lower(),
+                 alpha=0.7, color=color.lower(),  # Увеличиваем прозрачность
                  label=f'{color} (μ={mean_val:.1f}, σ={std_val:.1f})')
 
-    plt.title(f'Color Distribution {title_suffix}'.strip(), fontsize=14)
-    plt.xlabel("Color Value (0-255)", fontsize=12)
-    plt.ylabel("Pixel Count", fontsize=12)
-    plt.grid(True, linestyle='--', alpha=0.4)
+    plt.title(f'Color Distribution {title_suffix}'.strip(), fontsize=16)  # Увеличиваем размер шрифта
+    plt.xlabel("Color Value (0-255)", fontsize=14)  # Увеличиваем размер шрифта
+    plt.ylabel("Pixel Count", fontsize=14)  # Увеличиваем размер шрифта
+    plt.grid(True, linestyle='--', alpha=0.6)  # Увеличиваем прозрачность сетки
     plt.xlim(0, 255)
-    plt.legend(facecolor='white', edgecolor='none', framealpha=0.9)
+    plt.legend(facecolor='white', edgecolor='black', framealpha=1, fontsize=12)  # Улучшаем легенду
     plt.tight_layout()
-    plt.savefig(filename, bbox_inches='tight')
+    plt.savefig(filename, bbox_inches='tight', dpi=150)  # Увеличиваем DPI для лучшего качества
     plt.close()
 
 
