@@ -1,9 +1,20 @@
 language: python
 python:
-  - "3.8"  # Укажите версию Python, которую вы используете
+  - "3.8"
 
 install:
-  - pip install -r requirements.txt  # Установите зависимости
+  - pip install -r requirements.txt
 
 script:
-  - python -m pytest  # Запустите тесты (если они есть)
+  - python -m pytest  # Запуск тестов
+
+cache:
+  directories:
+    - $HOME/.cache/pip
+
+notifications:
+  email:
+    recipients:
+      - birner.vad@gmail.com  # уведомление на почту о статусе сборки
+    on_success: always  # Уведомления при успешной сборке
+    on_failure: always  # Уведомления при неудачной сборке
